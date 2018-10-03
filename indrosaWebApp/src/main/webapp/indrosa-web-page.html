@@ -8,7 +8,8 @@
 <link rel="import" href="/bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="/bower_components/paper-item/paper-icon-item.html">
 <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
-<link rel="import"href="/acerca-de.html">
+<link rel="import" href="/acerca-de.html">
+<link rel="import" href="/elem-inicio.html">
 
 
 <dom-module id="indrosa-web-page">
@@ -37,6 +38,10 @@
       --app-drawer-content-container: {
         background-color: #eee;
       }
+    }
+
+    .hide{
+      display:none;
     }
 
     .drawer-content {
@@ -68,13 +73,18 @@
     <app-drawer-layout id="drawerLayout">
     
     <!-- Componente acerca de -->
-      <div class="content-container">
+      <div id="aboutComponent" class="content-container hide">
         <acerca-de></acerca-de>
       </div>
     <!-- Fin componente acerca de -->
+    <!-- Componente Inicio -->
+      <div id="homeComponent" class="content-container">
+        <elem-inicio></elem-inicio>
+      </div>
+    <!-- Fin Inicio -->
       <app-drawer slot="drawer">
         <div class="drawer-content">
-          <paper-icon-item>
+          <paper-icon-item id="homeMenu">
             <iron-icon icon="home" slot="item-icon"></iron-icon> <span>Inicio</span>
           </paper-icon-item>
           <paper-icon-item>
@@ -86,7 +96,7 @@
           <paper-icon-item>
             <iron-icon icon="mail" slot="item-icon"></iron-icon> <span>Contacto</span>
           </paper-icon-item>
-          <paper-icon-item>
+          <paper-icon-item id="aboutMenu">
             <iron-icon icon="info" slot="item-icon"></iron-icon> <span>Acerca de</span>
           </paper-icon-item>
         </div>
@@ -117,7 +127,9 @@
       }  
       ready(){
         super.ready();
+        this.$.aboutMenu.addEventListener('click',this.aboutMenuClk.bind(this));
         this.$.toggle.addEventListener('click',this.toggleButton.bind(this));
+        this.$.homeMenu.addEventListener('click',this.homeComponentClk.bind(this));
       }   
       toggleButton(){
         console.log(this);
@@ -126,7 +138,33 @@
         } else {
           this.$.drawerLayout.drawer.toggle();
         }
-      } 
+      }
+      aboutMenuClk(){
+        console.log(this.$.aboutComponent);
+        var hideComponent=this.$.homeComponent;
+        console.log(hideComponent);
+        hideComponent.classList.add('hide');
+        var aboutComponent=this.$.aboutComponent;
+        if (aboutComponent.classList.contains('hide')){
+          aboutComponent.classList.remove('hide');
+        }
+        else{
+          aboutComponent.classList.add('hide');
+        }
+      }
+      homeComponentClk(){
+        console.log("Home component")
+        var hideComponent=this.$.aboutComponent;
+        console.log(hideComponent);
+        hideComponent.classList.add('hide');
+        var homeComponent=this.$.homeComponent;
+        if (homeComponent.classList.contains('hide')){
+          homeComponent.classList.remove('hide');
+        }
+        else{
+          homeComponent.classList.add('hide');
+        }
+      }
     }
 
     window.customElements.define(IndrosaWebPage.is, IndrosaWebPage);

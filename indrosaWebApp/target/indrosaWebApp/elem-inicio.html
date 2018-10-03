@@ -1,0 +1,27 @@
+<link rel="import" href="/bower_components/polymer/polymer-element.html">
+
+<dom-module id="elem-inicio">
+<style>
+    .content{
+        position:absolute;
+        width:100%;
+        height:100%;
+    }
+</style>
+<template>
+    <div class="content">
+        <h1 style="text-align:center">¡Bienvenidos a la página web de Sistemas de Seguridad de la Sierra!</h1>
+    </div>
+</template>
+<script>
+    class ElemInicio extends Polymer.Element{
+        static get is(){return 'elem-inicio'}
+        static get properties(){
+            return {
+
+            };
+        }
+    }
+    window.customElements.define(ElemInicio.is,ElemInicio);
+</script>
+</dom-module>
