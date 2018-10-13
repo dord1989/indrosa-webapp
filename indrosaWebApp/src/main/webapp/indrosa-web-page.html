@@ -146,20 +146,14 @@
         }
       }
       aboutMenuClk(){
-        console.log(this.$.aboutComponent);
-        var hideComponent=this.$.homeComponent;
-        console.log(hideComponent);
-        hideComponent.classList.add('hide');
-        var aboutComponent=this.$.aboutComponent;
-          aboutComponent.classList.remove('hide');
+        this.$.homeComponent.classList.add('hide');
+        this.$.contactComponent.classList.add('hide');
+        this.$.aboutComponent.classList.remove('hide');
       }
       homeComponentClk(){
-        console.log("Home component")
-        var hideComponent=this.$.aboutComponent;
-        console.log(hideComponent);
-        hideComponent.classList.add('hide');
-        var homeComponent=this.$.homeComponent;
-          homeComponent.classList.remove('hide');
+        this.$.aboutComponent.classList.add('hide');
+        this.$.contactComponent.classList.add('hide');
+        this.$.homeComponent.classList.remove('hide');
       }
       contactClk(){
         console.log("Click en contacto");
