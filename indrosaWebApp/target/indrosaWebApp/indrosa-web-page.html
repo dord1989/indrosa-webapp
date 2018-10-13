@@ -10,6 +10,7 @@
 <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="/acerca-de.html">
 <link rel="import" href="/elem-inicio.html">
+<link rel="import" href="/elem-contacto.html">
 
 
 <dom-module id="indrosa-web-page">
@@ -82,6 +83,11 @@
         <elem-inicio></elem-inicio>
       </div>
     <!-- Fin Inicio -->
+    <!-- Componente Contacto -->
+    <div id="contactComponent" class="content-container hide">
+      <elem-contacto></elem-contacto>
+    </div>
+  <!-- Fin Contacto -->
       <app-drawer slot="drawer">
         <div class="drawer-content">
           <paper-icon-item id="homeMenu">
@@ -93,7 +99,7 @@
           <paper-icon-item>
             <iron-icon icon="store" slot="item-icon"></iron-icon> <span>Promociones</span>
           </paper-icon-item>
-          <paper-icon-item>
+          <paper-icon-item on-click="contactClk">
             <iron-icon icon="mail" slot="item-icon"></iron-icon> <span>Contacto</span>
           </paper-icon-item>
           <paper-icon-item id="aboutMenu">
@@ -140,30 +146,20 @@
         }
       }
       aboutMenuClk(){
-        console.log(this.$.aboutComponent);
-        var hideComponent=this.$.homeComponent;
-        console.log(hideComponent);
-        hideComponent.classList.add('hide');
-        var aboutComponent=this.$.aboutComponent;
-        if (aboutComponent.classList.contains('hide')){
-          aboutComponent.classList.remove('hide');
-        }
-        else{
-          aboutComponent.classList.add('hide');
-        }
+        this.$.homeComponent.classList.add('hide');
+        this.$.contactComponent.classList.add('hide');
+        this.$.aboutComponent.classList.remove('hide');
       }
       homeComponentClk(){
-        console.log("Home component")
-        var hideComponent=this.$.aboutComponent;
-        console.log(hideComponent);
-        hideComponent.classList.add('hide');
-        var homeComponent=this.$.homeComponent;
-        if (homeComponent.classList.contains('hide')){
-          homeComponent.classList.remove('hide');
-        }
-        else{
-          homeComponent.classList.add('hide');
-        }
+        this.$.aboutComponent.classList.add('hide');
+        this.$.contactComponent.classList.add('hide');
+        this.$.homeComponent.classList.remove('hide');
+      }
+      contactClk(){
+        console.log("Click en contacto");
+        this.$.aboutComponent.classList.add('hide');
+        this.$.homeComponent.classList.add('hide');
+        this.$.contactComponent.classList.remove('hide');
       }
     }
 
