@@ -1,16 +1,48 @@
 <link rel="import" href="/bower_components/polymer/polymer-element.html">
 
 <dom-module id="elem-contacto">
-<style>
-    .content{
-        position:absolute;
-        width:100%;
-        height:100%;
-    }
-</style>
 <template>
+        <style>
+                :host{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                }
+                .content{
+                    position:absolute;
+                    height:100%;
+                }
+                .googleLocation{
+                    width:80%;
+                    height:50%;
+                    left: 10%;
+                    position: absolute;
+                }
+                .googleFrame{
+                    width:100%;
+                    height:100%;
+                    position: absolute;
+                }
+                .center{
+                    text-align:center;
+                }
+            </style>
     <div class="content">
-        <h1 style="text-align:center">Contacto</h1>
+        <h1 class="center">Contacto</h1>
+        <p>
+            La empresa se encuentra ubicada en Av Miguel Hidalgo 1, colonia Miguel Hidalgo, Huauchinango, Puebla, a unos metros del Hospital
+            General de Huauchinango.
+        </p>
+        <p>
+            Teléfonos:
+            <ul>
+                <li>Empresa: 01 776 7456617</li>
+                <li>Celular: 775 104 0772</li>
+            </ul>
+        </p>
+        <div  class="googleLocation">
+                <iframe class="googleFrame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.6703562510465!2d-98.06922128514526!3d20.189446286459017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d08a3597c3a7cb%3A0x9d8258f58a492f83!2sMiguel+Hidalgo+1%2C+Miguel+Hidalgo%2C+Huauchinango%2C+Pue.!5e0!3m2!1ses-419!2smx!4v1543761119182" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
     </div>
 </template>
 <script>
